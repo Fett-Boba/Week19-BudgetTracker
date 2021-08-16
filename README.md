@@ -18,7 +18,7 @@ Users can:
 
 ## Link to Online App
 
-Heroku URL here !!!!!!!!!!!!!!!!
+https://salty-beach-80384.herokuapp.com/
 
 
 ## Install to Desktop
