@@ -1,5 +1,5 @@
 console.log("Hello from your service worker!");
-const CACHE_NAME = "static-cache-v2";
+const CACHE_NAME = "static-cache-v3";
 const DATA_CACHE_NAME = "data-cache-v1";
 const FILES_TO_CACHE = [
      "/",
@@ -39,7 +39,6 @@ self.addEventListener("activate", function (evt) {
 
 // fetch
 self.addEventListener("fetch", function (evt) {
-     // if (evt.request.url.includes("/api/")) {
      if (evt.request.url.includes("/api/")) {
           evt.respondWith(
                caches.open(DATA_CACHE_NAME).then(cache => {
@@ -51,7 +50,6 @@ self.addEventListener("fetch", function (evt) {
                               return response;
                          })
                          .catch(err => {
-                              // Network request failed, try to get it from the cache.
                               return cache.match(evt.request);
                          });
                }).catch(err => console.log(err))
